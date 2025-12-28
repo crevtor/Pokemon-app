@@ -1,4 +1,4 @@
-import 'package:pokemon/core/extensions/export_extensions.dart';
+import 'package:pokemon/core/extensions/export.extensions.dart';
 import 'package:pokemon/core/models/export.models.dart';
 import 'package:pokemon/core/services/export.services.dart';
 import 'package:pokemon/core/view_models/export.view_models.dart';

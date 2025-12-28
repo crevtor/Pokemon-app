@@ -1,5 +1,5 @@
 import 'dart:async';
-import 'package:pokemon/core/extensions/export_extensions.dart';
+import 'package:pokemon/core/extensions/export.extensions.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 

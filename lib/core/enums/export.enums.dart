@@ -1,0 +1,1 @@
+export 'package:pokemon/features/pokemon/view/pokemon_details/enums/pokemon_tabs.enum.dart';

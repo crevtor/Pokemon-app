@@ -1,4 +1,5 @@
-import 'package:pokemon/core/extensions/export_extensions.dart';
+import 'package:pokemon/core/extensions/export.extensions.dart';
+import 'package:pokemon/core/services/user_storage.service.dart';
 import 'package:pokemon/core/utils/export.utilities.dart';
 import 'package:pokemon/core/view_models/export.view_models.dart';
 // import 'package:pokemon/features/wallet/extensions/transactions_query.ext.dart';
@@ -57,6 +58,7 @@ class SearchFilterUi extends HookConsumerWidget {
         Bounce(
           onTap: () {
             debouncer.cancel();
+            userStateStorageService.updateLoginState(false);
           },
           child: Container(
             width: 40,

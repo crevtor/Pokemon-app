@@ -1,4 +1,4 @@
-import 'package:pokemon/core/extensions/export_extensions.dart';
+import 'package:pokemon/core/extensions/export.extensions.dart';
 import 'package:pokemon/core/resources/export.resources.dart';
 import 'package:pokemon/core/theme/app.themes.dart';
 import 'package:pokemon/core/widgets/export.widgets.dart';

@@ -10,7 +10,7 @@ class AppLogoUi extends ConsumerWidget {
       left: 30,
       child: RubberBand(
         preferences: AnimationPreferences(
-            offset: slowDuration850,
+            offset: extraSlowDuration1000,
         ),
         child: SmartMedia.fadeAssetImage(
             pokemonPng,

@@ -15,6 +15,7 @@ class OnboardingCta extends ConsumerWidget {
           children: [
             PrimaryButton(
               onTap: () {
+                userStateStorageService.updateLoginState(true);
                 ref.read(routerProvider)
                     .pushNamed(getNameFromRoute(Routes.pokemonList));
               },

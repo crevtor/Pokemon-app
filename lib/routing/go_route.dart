@@ -1,4 +1,4 @@
-import 'package:pokemon/core/extensions/export_extensions.dart';
+import 'package:pokemon/core/extensions/export.extensions.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';

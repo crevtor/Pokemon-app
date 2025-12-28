@@ -1,5 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:pokemon/core/extensions/export_extensions.dart';
+import 'package:pokemon/core/extensions/export.extensions.dart';
 
 part 'pokemon_detail.model.freezed.dart';
 part 'pokemon_detail.model.g.dart';
