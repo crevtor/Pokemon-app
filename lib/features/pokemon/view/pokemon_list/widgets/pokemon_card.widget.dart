@@ -8,67 +8,82 @@ import 'package:pokemon/routing/app_routes.dart';
 import 'package:pokemon/routing/go_route.dart';
 
 class PokemonCardUi extends ConsumerWidget {
-  const PokemonCardUi({super.key,
-    required this.item, this.animationOffset});
+  const PokemonCardUi({
+    super.key,
+    required this.item,
+    this.animationOffset,
+    this.animate = true,
+  });
 
   final PokemonListItem item;
   final int? animationOffset;
+  final bool animate;
 
   @override
   Widget build(BuildContext context, ref) {
-    return FadeInUpUi(
-      animationOffset: animationOffset ?? 50,
-      child: Bounce(
-        onTap: () {
-          ref.read(routerProvider)
-              .pushNamed(getNameFromRoute(Routes.pokemonDetails),
-              extra: item,
-          );
-        },
-        child: Container(
-          width: double.infinity,
-          margin: baseViewPaddingBig,
-          padding: baseViewAllPadding12,
-          decoration: BoxDecoration(
-            color: secondary500,
-            border: Border.all(color: grayScale10),
-            borderRadius: BorderRadius.all(smallRadius),
-          ),
-          child: Row(
-            spacing: 12,
-            children: [
-              ClipRRect(
-                borderRadius: BorderRadius.all(smallRadius),
-                child: SizedBox(
-                  height: 78,
-                  width: 88,
-                  child: (item.spriteUrl?.isEmpty ?? true) ? SizedBox.shrink() :
-                  CachedLocalNetworkImage(
-                    url: item.spriteUrl ?? '',
-                    fit: BoxFit.cover,
-                  ),
+    final card = Bounce(
+      onTap: () {
+        ref.read(routerProvider).pushNamed(
+          getNameFromRoute(Routes.pokemonDetails),
+          extra: item,
+        );
+      },
+      child: Container(
+        width: double.infinity,
+        margin: baseViewPaddingBig,
+        padding: baseViewAllPadding12,
+        decoration: BoxDecoration(
+          color: secondary500,
+          border: Border.all(color: grayScale10),
+          borderRadius: BorderRadius.all(smallRadius),
+        ),
+        child: Row(
+          spacing: 12,
+          children: [
+            ClipRRect(
+              borderRadius: BorderRadius.all(smallRadius),
+              child: SizedBox(
+                height: 78,
+                width: 88,
+                child: (item.spriteUrl?.isEmpty ?? true)
+                    ? SizedBox.shrink()
+                    : CachedLocalNetworkImage(
+                  url: item.spriteUrl ?? '',
+                  fit: BoxFit.cover,
                 ),
               ),
-              Expanded(child: Column(
+            ),
+            Expanded(
+              child: Column(
                 spacing: 5,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Row(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
-                      Expanded(child:
-                      Align(alignment: Alignment.centerLeft,
-                          child: TextUi.otherInfoTitle(item.name ?? '...'))),
+                      Expanded(
+                        child: Align(
+                          alignment: Alignment.centerLeft,
+                          child: TextUi.otherInfoTitle(item.name?.capitalize ?? '...'),
+                        ),
+                      ),
                       SmartMedia.fadeAssetSvg(arrowFrontIcon,
                           width: 14, height: 14, color: charcoal450),
                     ],
                   ),
                 ],
-              ))
-            ],
-          ),
+              ),
+            )
+          ],
         ),
       ),
+    );
+
+    if (!animate) return card;
+
+    return FadeInUpUi(
+      animationOffset: animationOffset,
+      child: card,
     );
   }
 }

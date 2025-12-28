@@ -81,6 +81,21 @@ class PokemonListPageUi extends HookConsumerWidget {
     return Consumer(
         builder: (context, ref, child) {
           final notifier = ref.read(pokemonListNotifierProvider.notifier);
+
+          final prevAnimatedCount = ref.watch(pokemonListLastAnimatedCountProvider);
+
+          final cappedPrev = prevAnimatedCount > suggestionList.length
+              ? suggestionList.length
+              : prevAnimatedCount;
+
+          WidgetsBinding.instance.addPostFrameCallback((_) {
+            final cur = suggestionList.length;
+            final currentStored = ref.read(pokemonListLastAnimatedCountProvider);
+            if (currentStored != cur) {
+              ref.read(pokemonListLastAnimatedCountProvider.notifier).state = cur;
+            }
+          });
+
           return LazyLoadScrollView(
             onEndOfPage: notifier.loadMore,
             scrollOffset: 300,
@@ -97,23 +112,15 @@ class PokemonListPageUi extends HookConsumerWidget {
                 separatorBuilder: (context, index) => const Gap(14),
                 itemCount: suggestionList.length,
                 itemBuilder: (context, index) {
-                  if (index < suggestionList.length) {
-                    final item = suggestionList[index];
-                    return PokemonCardUi(
-                      item: item,
-                      animationOffset: index * 50,
-                    );
-                  }
+                  final item = suggestionList[index];
 
-                  if (!notifier.hasMore) {
-                    return const SizedBox(height: 48);
-                  }
+                  final shouldAnimate = index >= cappedPrev;
+                  final animOffset = shouldAnimate ? (index - cappedPrev) * 50 : null;
 
-                  return Center(
-                    child: SpinKitThreeBounce(
-                      color: white,
-                      size: 17,
-                    ),
+                  return PokemonCardUi(
+                    item: item,
+                    animationOffset: animOffset,
+                    animate: true,
                   );
                 },
               ),

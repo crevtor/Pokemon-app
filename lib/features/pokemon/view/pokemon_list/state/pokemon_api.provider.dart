@@ -33,3 +33,5 @@ final pokemonListProvider = Provider.autoDispose<AsyncValue<PokemonListResponse?
     error: (err, st) => AsyncValue<PokemonListResponse?>.error(err, st),
   );
 });
+
+final pokemonListLastAnimatedCountProvider = StateProvider<int>((ref) => 0);

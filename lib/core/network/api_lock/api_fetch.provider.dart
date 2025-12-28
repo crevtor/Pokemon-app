@@ -5,7 +5,7 @@ import 'package:pokemon/core/network/api_lock/export.api_lock.dart';
 import 'package:pokemon/core/models/export.models.dart';
 
 
-int apiCacheVersion = 2;
+int apiCacheVersion = 3;
 
 AutoDisposeFutureProvider<T?> createSavableApiProvider<T extends SavableModel>({
   required ApiFetchKey key,
