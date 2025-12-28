@@ -1,0 +1,13 @@
+export 'colors.res.dart';
+export 'durations.res.dart';
+export 'gif.res.dart';
+export 'icons.res.dart';
+export 'images.res.dart';
+export 'lottie.res.dart';
+export 'radius.res.dart';
+export 'strings.res.dart';
+export 'app_constants.res.dart';
+export 'styles.res.dart';
+export 'typograhy.res.dart';
+export 'weights.res.dart';
+export 'enums.res.dart';

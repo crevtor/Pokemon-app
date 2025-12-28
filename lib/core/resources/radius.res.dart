@@ -1,0 +1,26 @@
+import 'package:flutter/widgets.dart';
+
+const zeroRadius = Radius.zero;
+const xsmallRadius = Radius.circular(4);
+const xsmallRadius5 = Radius.circular(5);
+const smallRadius6_36 = Radius.circular(6.36);
+const smallRadius = Radius.circular(8);
+const smallRadius9 = Radius.circular(9);
+const smallRadius10 = Radius.circular(10);
+const smallRadius11_25 = Radius.circular(11.25);
+const smallRadius12 = Radius.circular(12);
+const regularRadius14 = Radius.circular(14);
+const regularRadius = Radius.circular(15);
+const regularRadius16 = Radius.circular(16);
+const regularRadius16_2 = Radius.circular(16.2);
+const regularRadius17 = Radius.circular(17);
+const regularRadius18 = Radius.circular(18);
+const regularRadius20 = Radius.circular(20);
+const regularRadius13 = Radius.circular(13);
+const mediumRadius = Radius.circular(24);
+const mediumRadius25 = Radius.circular(25);
+const bigRadius = Radius.circular(32);
+const bigRadius36 = Radius.circular(36);
+const bigRadius39 = Radius.circular(39);
+const bigRadius100 = Radius.circular(100);
+const bigRadius500 = Radius.circular(500);
